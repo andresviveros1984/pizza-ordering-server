@@ -1,6 +1,12 @@
 const express = require('express');
 const helmet = require("helmet");
 const morgan = require("morgan");
+const dotenv = require("dotenv")
+
+dotenv.config()
+
+
+let port = process.env.port || 8000 
 
 const { 
     getPizzas, 
@@ -32,6 +38,7 @@ express()
 
     .delete("/orders/:orderId", deleteOrder)
 
-    .listen(8000, () => {
+
+    .listen(port, () => {
         console.log(`Server listening on port ${8000}`)
     });
